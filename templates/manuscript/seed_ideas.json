@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "gpt-driven_cooperation_in_agent-based_simulations",
+    "Title": "How can we use gpt to empower agent based simulations to understand human cooperation",
+    "Experiment": "Equip agents in the simulation with GPT modules to enable complex decision-making based on learned human cooperation data. Continuously adjust the complexity and constraints of the simulation environment (e.g., resource availability, social norms) to test the adaptability and effectiveness of GPT-driven strategies in real-time. Measure the success of cooperation strategies through outcomes like resource distribution efficiency and conflict resolution rates.",
+    "Results": "Agents powered by GPT exhibit more nuanced and effective cooperative strategies under dynamically changing conditions, providing deeper insights into the mechanisms of human cooperation.",
+    "Interestingness": 9,
+    "Feasibility": 7,
+    "Novelty": 6
+  }
+]

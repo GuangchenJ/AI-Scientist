@@ -1,0 +1,1258 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2024_conference,times}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{titletoc}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{cleveref}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\graphicspath{{../}} % To reference your generated figures, see below.
+\begin{filecontents}{references.bib}
+@book{bicchieri2005grammar,
+  title={The grammar of society: The nature and dynamics of social norms},
+  author={Bicchieri, Cristina},
+  year={2005},
+  publisher={Cambridge University Press}
+}
+
+@inproceedings{haque2024extracting,
+  title={Extracting Norms from Contracts Via ChatGPT: Opportunities and Challenges},
+  author={Haque, Amanul and Singh, Munindar P},
+  booktitle={COINE workshop, AAMAS},
+  year={2024}
+}
+
+
+@incollection{cialdini1991focus,
+  title={A focus theory of normative conduct: A theoretical refinement and reevaluation of the role of norms in human behavior},
+  author={Cialdini, Robert B and Kallgren, Carl A and Reno, Raymond R},
+  booktitle={Advances in experimental social psychology},
+  volume={24},
+  year={1991},
+  publisher={Elsevier}
+}
+
+@article{reno1993transsituational,
+  title={The transsituational influence of social norms.},
+  author={Reno, Raymond R and Cialdini, Robert B and Kallgren, Carl A},
+  journal={Journal of personality and social psychology},
+  volume={64},
+  number={1},
+  pages={104},
+  year={1993},
+  publisher={American Psychological Association}
+}
+
+@inproceedings{morales2013automated,
+  title={Automated synthesis of normative systems.},
+  author={Morales, Javier and Lopez-Sanchez, Maite and Rodriguez-Aguilar, Juan A and Wooldridge, M. J and Vasconcelos, Wamberto W.},
+  booktitle={AAMAS},
+  year={2013}
+}
+
+@article{savarimuthu2011norm,
+  title={Norm creation, spreading and emergence: A survey of simulation models of norms in multi-agent systems},
+  author={Savarimuthu, Bastin Tony Roy and Cranefield, Stephen},
+  journal={Multiagent and Grid Systems},
+  volume={7},
+  number={1},
+  pages={21--54},
+  year={2011},
+  publisher={IOS Press}
+}
+
+@article{haynes2017engineering,
+  title={Engineering the emergence of norms: a review},
+  author={Haynes, Chris and Luck, Michael and McBurney, Peter and Mahmoud, Samhar and V{\'\i}tek, Tom{\'a}{\v{s}} and Miles, Simon},
+  journal={The Knowledge Engineering Review},
+  year={2017},
+  publisher={Cambridge University Press}
+}
+
+@article{santos2017detection,
+  title={Detection and resolution of normative conflicts in multi-agent systems: a literature survey},
+  author={Santos, J{\'e}ssica S and Zahn, Jean O and Silvestre, Eduardo A and Silva, Viviane T and Vasconcelos, Wamberto W},
+  journal={AAMAS},
+  year={2017}
+}
+
+@inproceedings{Park2023GenerativeAgents,  
+author = {Park, Joon Sung and O'Brien, Joseph C. and Cai, Carrie J. and Morris, Meredith Ringel and Liang, Percy and Bernstein, Michael S.},  
+title = {Generative Agents: Interactive Simulacra of Human Behavior},  
+year = {2023},  
+publisher = {Association for Computing Machinery},  
+booktitle = {UIST '23}
+}
+
+@article{young2015evolution,
+  title={The evolution of social norms},
+  author={Young, H Peyton},
+  journal={economics},
+  volume={7},
+  number={1},
+  pages={359--387},
+  year={2015},
+  publisher={Annual Reviews}
+}
+
+@article{centola2018experimental,
+  title={Experimental evidence for tipping points in social convention},
+  author={Centola, D. and Becker, J. and Brackbill, D. and Baronchelli, A.},
+  journal={Science},
+  volume={360},
+  number={6393},
+  year={2018},
+  publisher={American Association for the Advancement of Science}
+}
+
+
+@article{andreoni2021predicting,
+  title={Predicting social tipping and norm change in controlled experiments},
+  author={Andreoni, James and Nikiforakis, Nikos and Siegenthaler, Simon},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={118},
+  number={16},
+  pages={e2014893118},
+  year={2021},
+  publisher={National Acad Sciences}
+}
+
+@article{finnemore1998international,
+  title={International norm dynamics and political change},
+  author={Finnemore, Martha and Sikkink, Kathryn},
+  journal={International organization},
+  volume={52},
+  number={4},
+  pages={887--917},
+  year={1998},
+  publisher={Cambridge University Press}
+}
+
+@article{baronchelli2006sharp,
+  title={Sharp transition towards shared vocabularies in multi-agent systems},
+  author={Baronchelli, Andrea and Felici, Maddalena and Loreto, Vittorio and Caglioti, Emanuele and Steels, Luc},
+  journal={Journal of Statistical Mechanics: Theory and Experiment},
+  volume={2006},
+  number={06},
+  pages={P06014},
+  year={2006},
+  publisher={IOP Publishing}
+}
+
+
+@inproceedings{sen2007emergence,
+  title={Emergence of Norms through Social Learning.},
+  author={Sen, S. and Airiau, S.},
+  booktitle={IJCAI},
+  year={2007}
+}
+
+@article{clark2021all,
+  title={All that's' human'is not gold: Evaluating human evaluation of generated text},
+  author={Clark, E. and August, T. and Serrano, S. and Haduong, N. and Gururangan, S. and Smith, N. A.},
+  journal={arXiv:2107.00061},
+  year={2021}
+}
+
+
+
+@article{boella2008introduction,
+  title={Introduction to the special issue on normative multiagent systems},
+  author={Boella, Guido and Van Der Torre, Leendert and Verhagen, Harko},
+  journal={AAMAS},
+  volume={17},
+  pages={1--10},
+  year={2008},
+  publisher={Springer}
+}
+@article{chugunova2022we,
+  title={We and It: An interdisciplinary review of the experimental evidence on how humans interact with machines},
+  author={Chugunova, Marina and Sele, Daniela},
+  journal={Journal of Behavioral and Experimental Economics},
+  volume={99},
+  pages={101897},
+  year={2022},
+  publisher={Elsevier}
+}
+
+@book{lewis2008convention,
+  title={Convention: A philosophical study},
+  author={Lewis, David},
+  year={2008},
+  publisher={John Wiley \& Sons}
+}
+
+@inproceedings{zhang2024building,
+title={Building Cooperative Embodied Agents Modularly with Large Language Models},
+author={Zhang, H. and Du, W. and Shan, J. and Zhou, Q. and Du, Y. and Joshua, B. T. and Shu, T. and Gan, C.},
+booktitle={ICLR},
+year={2024},
+url={https://openreview.net/forum?id=EnXJfQqy0K}
+}
+
+
+@article{schramowski2022large,
+  title={Large pre-trained language models contain human-like biases of what is right and wrong to do},
+  author={Schramowski, Patrick and T., Cigdem and A., Nico and R., Constantin A and K., Kristian},
+  journal={Nature Mach. Intell.},
+  year={2022},
+  publisher={Nature Publishing Group UK London}
+}
+@article{lewis1969convention,
+  title={Convention: A Philosophical Study},
+  author={Lewis, David Kellogg},
+  year={1969}
+}
+@inproceedings{neumann2010classification,
+  title={A classification of normative architectures},
+  author={Neumann, Martin},
+  booktitle={Simulating Interacting Agents and Social Phenomena: The Second World Congress},
+  year={2010}
+}
+
+@inproceedings{aagotnes2009temporal,
+  title={A temporal logic of normative systems},
+  author={{\AA}gotnes, T. and Van Der Hoek, W. and Rodr{\'\i}guez-Aguilar, J. A and Sierra, C. and Wooldridge, M.},
+  booktitle={Towards Mathematical Philosophy: Papers from the Studia Logica conference Trends in Logic IV},
+  pages={69--106},
+  year={2009},
+  organization={Springer}
+}
+
+
+
+
+@article{mahmoud2015establishing,
+  title={Establishing norms with metanorms in distributed computational systems},
+  author={Mahmoud, S. and Nathan, G. and Keppens, J. and Taweel, A. and Bench-Capon, T. JM and Luck, M.},
+  journal={Artificial Intelligence and Law},
+  year={2015}
+}
+
+
+@inproceedings{villatoro2011dynamic,
+  title={Dynamic sanctioning for robust and cost-efficient norm compliance},
+  author={Villatoro, D. and Andrighetto, G. and Sabater-Mir, J. and Conte, R.},
+  booktitle={IJCAI},
+  year={2011}
+}
+@inproceedings{modgil2009framework,
+  title={A framework for monitoring agent-based normative systems},
+  author={Modgil, S. and Faci, N. and Meneguzzi, F. and Oren, N. and Miles, S. and Luck, M.},
+  booktitle={AAMAS},
+  year={2009}
+}
+
+
+@article{cranefield2016bayesian,
+  title={A Bayesian approach to norm identification},
+  author={Cranefield, Stephen and Meneguzzi, Felipe and Oren, Nir and Savarimuthu, Bastin Tony Roy},
+  journal={ECAI},
+  year={2016},
+  publisher={IOS Press}
+}
+@article{abeywickrama2023emergence,
+  title={Emergence of norms in interactions with complex rewards},
+  author={Abeywickrama, Dhaminda B and Griffiths, Nathan and Xu, Zhou and Mouzakitis, Alex},
+  journal={AAMAS},
+  volume={37},
+  number={1},
+  pages={2},
+  year={2023},
+  publisher={Springer}
+}
+@inproceedings{ajmeri2020elessar,
+  title={Elessar: Ethics in Norm-Aware Agents.},
+  author={Ajmeri, Nirav and Guo, Hui and Murukannaiah, Pradeep K and Singh, Munindar P},
+  booktitle={AAMAS},
+  pages={16--24},
+  year={2020}
+}
+@article{li2024agent,
+  title={Agent Alignment in Evolving Social Norms},
+  author={Li, Shimin and Sun, Tianxiang and Qiu, Xipeng},
+  journal={arXiv preprint arXiv:2401.04620},
+  year={2024}
+}
+@article{serramia2018moral,
+  title={Moral values in norm decision making},
+  author={Serramia, Marc and Lopez-Sanchez, Maite and Rodriguez-Aguilar, Juan A and Rodriguez, Manel and Wooldridge, Michael and Morales, Javier and Ansotegui, Carlos},
+  journal={AAMAS (AAMAS 2018)},
+  year={2018},
+  publisher={International Foundation for Autonomous Agents and Multiagent Systems}
+}
+@article{abbink2017peer,
+  title={Peer punishment promotes enforcement of bad social norms},
+  author={Abbink, K. and G., Lata and Handfield, Toby and Thrasher, John},
+  journal={Nature communications},
+  year={2017},
+  publisher={Nature Publishing Group UK London}
+}
+
+@article{winikoff2021bad,
+  title={Why bad coffee? Explaining BDI agent behaviour with valuings},
+  author={Winikoff, Michael and S., Galina and D., Virginia and D., Frank},
+  journal={Artificial Intelligence},
+  year={2021}
+}
+
+@article{mahmoud2017establishing,
+  title={Establishing norms with metanorms over interaction topologies},
+  author={Mahmoud, S. and Griffiths, N. and Keppens, J. and Luck, M.},
+  journal={AAMAS},
+  year={2017},
+  publisher={Springer}
+}
+
+
+
+@article{morris2019norm,
+  title={Norm emergence in multiagent systems: a viewpoint paper},
+  author={Morris-Martin, Andreasa and De Vos, Marina and Padget, Julian},
+  journal={AAMAS},
+  year={2019},
+  publisher={Springer}
+}
+@inproceedings{hu2017achieving,
+  title={Achieving Coordination in Multi-Agent Systems by Stable Local Conventions under Community Networks.},
+  author={Hu, Shuyue and Leung, Ho-fung},
+  booktitle={IJCAI},
+  year={2017}
+}
+
+
+@article{baronchelli2018emergence,
+  title={The emergence of consensus: a primer},
+  author={Baronchelli, Andrea},
+  journal={Royal Society open science},
+  volume={5},
+  number={2},
+  pages={172189},
+  year={2018},
+  publisher={The Royal Society Publishing}
+}
+
+@inproceedings{beheshti2015cognitive,
+  title={Cognitive social learners: An architecture for modeling normative behavior},
+  author={Beheshti, Rahmatollah and Ali, Awrad M. and S., Gita},
+  booktitle={AAAI},
+  year={2015}
+}
+@article{amato2018dynamics,
+  title={The dynamics of norm change in the cultural evolution of language},
+  author={Amato, Roberta and L., Lucas and D{\'\i}az-Guilera, Albert and Baronchelli, Andrea},
+  journal={PNAS},
+  year={2018}
+}
+
+@article{criado2011open,
+  title={Open issues for normative multi-agent systems},
+  author={Criado, Natalia and Argente, Estefania and Botti, V},
+  journal={AI communications},
+  year={2011},
+  publisher={IOS Press}
+}
+
+@article{young1993evolution,
+  title={The evolution of conventions},
+  author={Young, H Peyton},
+  journal={Econometrica: Journal of the Econometric Society},
+  pages={57--84},
+  year={1993},
+  publisher={JSTOR}
+}
+@article{shanahan2023role,
+  title={Role play with large language models},
+  author={Shanahan, M. and M., K. and R., L.},
+  journal={Nature},
+  year={2023},
+  publisher={Nature Publishing Group UK London}
+}
+
+@article{schwartz1973normative,
+  title={Normative explanations of helping behavior: A critique, proposal, and empirical test},
+  author={Schwartz, S. H.},
+  journal={Journal of Experimental Social Psychology},
+  year={1973},
+  publisher={Elsevier}
+}
+
+@article{passafaro2019local,
+  title={Local norms and the theory of planned behavior: Understanding the effects of spatial proximity on recycling intentions and self-reported behavior},
+  author={Passafaro, Paola and Livi, Stefano and Kosic, Ankica},
+  journal={Frontiers in psychology},
+  volume={10},
+  pages={744},
+  year={2019},
+  publisher={Frontiers Media SA}
+}
+
+@article{gross2022people,
+  title={Why do people follow social norms?},
+  author={Gross, J{\"o}rg and Vostroknutov, Alexander},
+  journal={Current Opinion in Psychology},
+  volume={44},
+  pages={1--6},
+  year={2022},
+  publisher={Elsevier}
+}
+
+@article{lapinski2005explication,
+  title={An explication of social norms},
+  author={Lapinski, Maria Knight and Rimal, Rajiv N},
+  journal={Communication theory},
+  volume={15},
+  number={2},
+  pages={127--147},
+  year={2005},
+  publisher={Oxford University Press}
+}
+
+@book{finnemore1996national,
+  title={National interests in international society},
+  author={Finnemore, Martha},
+  year={1996},
+  publisher={Cornell University Press}
+}
+
+@article{chen2023put,
+  title={Put Your Money Where Your Mouth Is: Evaluating Strategic Planning and Execution of LLM Agents in an Auction Arena},
+  author={Chen, Jiangjie and Yuan, Siyu and Ye, Rong and Majumder, Bodhisattwa Prasad and Richardson, Kyle},
+  journal={arXiv preprint arXiv:2310.05746},
+  year={2023}
+}
+
+@article{kaiya2023lyfe,
+  title={Lyfe Agents: Generative agents for low-cost real-time social interactions},
+  author={Kaiya, Zhao and Naim, Michelangelo and Kondic, Jovana and Cortes, Manuel and Ge, Jiaxin and Luo, Shuying and Yang, Guangyu Robert and Ahn, Andrew},
+  journal={arXiv preprint arXiv:2310.02172},
+  year={2023}
+}
+
+@article{jinxin2023cgmi,
+  title={Cgmi: Configurable general multi-agent interaction framework},
+  author={Jinxin, Shi and Jiabao, Zhao and Yilei, Wang and Xingjiao, Wu and Jiawen, Li and Liang, He},
+  journal={arXiv preprint arXiv:2308.12503},
+  year={2023}
+}
+
+@article{gao2023s,
+  title={S $\^{} 3$: Social-network Simulation System with Large Language Model-Empowered Agents},
+  author={Gao, Chen and Lan, Xiaochong and Lu, Zhihong and Mao, Jinzhu and Piao, Jinghua and Wang, Huandong and Jin, Depeng and Li, Yong},
+  journal={arXiv preprint arXiv:2307.14984},
+  year={2023}
+}
+
+@article{liu2023agentbench,
+  title={Agentbench: Evaluating llms as agents},
+  author={Liu, Xiao and Yu, Hao and Zhang, Hanchen and Xu, Yifan and Lei, Xuanyu and Lai, Hanyu and Gu, Yu and Ding, Hangliang and Men, Kaiwen and Yang, Kejuan and others},
+  journal={arXiv preprint arXiv:2308.03688},
+  year={2023}
+}
+
+
+
+
+@inproceedings{conte1998autonomous,
+  title={Autonomous norm acceptance},
+  author={Conte, R. and Cristiano, C. and Frank, D.},
+  booktitle={ATAL Workshop},
+  year={1998}
+}
+
+
+@article{eloundou2023gpts,
+  title={Gpts are gpts: An early look at the labor market impact potential of large language models},
+  author={Eloundou, Tyna and Manning, Sam and Mishkin, Pamela and Rock, Daniel},
+  journal={arXiv preprint arXiv:2303.10130},
+  year={2023}
+}
+
+@article{sunstein1996social,
+  title={Social norms and social roles},
+  author={Sunstein, Cass R},
+  journal={Colum. L. Rev.},
+  volume={96},
+  pages={903},
+  year={1996},
+  publisher={HeinOnline}
+}
+
+
+@article{hoffmann2003entrepreneurs,
+  title={Entrepreneurs and norm dynamics: An agent-based model of the norm life cycle},
+  author={Hoffmann, Mathew J},
+  journal={Penn’s Agent-Based Modeling Laboratory (PAMLA). http://www. polisci. upenn. edu/abir/private/Pamla/Hoffmann norms. doc},
+  year={2003}
+}
+
+@article{hawkins2019emergence,
+  title={The emergence of social norms and conventions},
+  author={Hawkins, Robert XD and G., Noah D and G., Robert L},
+  journal={Trends in cognitive sciences},
+  year={2019},
+  publisher={Elsevier}
+}
+
+@article{arts2009sims,
+  title={The Sims 3 [Video Game]},
+  author={Arts, Electronic},
+  year={2009}
+}
+
+@article{wilson2001social,
+  title={Social rules for managing attempted interpersonal domination in the workplace: Influence of status and gender},
+  author={Wilson, Keithia L and Lizzio, Alfred J and Zauner, Siegrid and Gallois, Cynthia},
+  journal={Sex Roles},
+  volume={44},
+  pages={129--154},
+  year={2001},
+  publisher={Springer}
+}
+
+
+@book{sherif1936psychology,
+  title={The psychology of social norms.},
+  author={Sherif, Muzafer},
+  year={1936},
+  publisher={Harper}
+}
+
+@article{axelrod1986evolutionary,
+  title={An evolutionary approach to norms},
+  author={Axelrod, Robert},
+  journal={American political science review},
+  volume={80},
+  number={4},
+  pages={1095--1111},
+  year={1986},
+  publisher={Cambridge University Press}
+}
+
+@inproceedings{savarimuthu2009social,
+  title={Social norm emergence in virtual agent societies},
+  author={Savarimuthu, Bastin Tony Roy and Purvis, Maryam and Purvis, Martin and Cranefield, Stephen},
+  booktitle={DALT 2008: Revised Selected and Invited Papers},
+  year={2009}
+}
+
+
+@inproceedings{beheshti2014normative,
+  title={A normative agent-based model for predicting smoking cessation trends},
+  author={Beheshti, Rahmatollah and Sukthankar, Gita},
+  booktitle={AAMAS},
+  year={2014}
+  }
+
+@article{li2023metaagents,
+  title={Metaagents: Simulating interactions of human behaviors for llm-based task-oriented coordination via collaborative generative agents},
+  author={Li, Yuan and Zhang, Yixuan and Sun, Lichao},
+  journal={arXiv preprint arXiv:2310.06500},
+  year={2023}
+}
+
+
+
+
+@book{conte1995cognitive,
+  title={Cognitive and social action},
+  author={Conte, Rosaria and Castelfranchi, Cristiano},
+  year={1995},
+  publisher={Psychology Press}
+}
+
+@article{wang2023humanoid,
+  title={Humanoid agents: Platform for simulating human-like generative agents},
+  author={Wang, Zhilin and Chiu, Yu Ying and Chiu, Yu Cheung},
+  journal={arXiv preprint arXiv:2310.05418},
+  year={2023}
+}
+
+@article{gong2023mindagent,
+  title={Mindagent: Emergent gaming interaction},
+  author={Gong, Ran and Huang, Qiuyuan and Ma, Xiaojian and Vo, Hoi and Durante, Zane and Noda, Yusuke and Zheng, Zilong and Zhu, Song-Chun and Terzopoulos, Demetri and Fei-Fei, Li and others},
+  journal={arXiv preprint arXiv:2309.09971},
+  year={2023}
+}
+
+@article{brown2020language,
+  title={Language models are few-shot learners},
+  author={Brown, Tom and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie and Kaplan, Jared D and Dhariwal, Prafulla and Neelakantan, Arvind and Shyam, Pranav and Sastry, Girish and Askell, Amanda and others},
+  journal={NeurIPS},
+  volume={33},
+  pages={1877--1901},
+  year={2020}
+}
+
+@book{shettleworth2009cognition,
+  title={Cognition, evolution, and behavior},
+  author={Shettleworth, Sara J},
+  year={2009},
+  publisher={Oxford university press}
+}
+
+@article{epstein2001learning,
+  title={Learning to be thoughtless: Social norms and individual computation},
+  author={Epstein, Joshua M},
+  journal={Computational economics},
+  volume={18},
+  pages={9--24},
+  year={2001},
+  publisher={Springer}
+}
+
+@inproceedings{walker1995understanding,
+  title={Understanding the Emergence of Conventions in Multi-Agent Systems.},
+  author={Walker, Adam and Wooldridge, Michael J},
+  booktitle={ICMAS},
+  year={1995}
+}
+
+@article{franks2013manipulating,
+  title={Manipulating convention emergence using influencer agents},
+  author={Franks, Henry and Griffiths, Nathan and Jhumka, Arshad},
+  journal={AAMAS},
+  volume={26},
+  pages={315--353},
+  year={2013},
+  publisher={Springer}
+}
+
+@inproceedings{morales2015synthesising,
+  title={Synthesising liberal normative systems},
+  author={Morales, J. and L{\'o}pez-S{\'a}nchez, M. and Rodr{\'\i}guez-Aguilar, J. A. and Wooldridge, M. and Vasconcelos, W.},
+  booktitle={AAMAS},
+  year={2015}
+}
+
+@inproceedings{morales2014minimality,
+  title={Minimality and simplicity in the on-line automated synthesis of normative systems},
+  author={Morales, Javier and Lopez-Sanchez, Maite and Rodr{\'\i}guez-Aguilar, Juan Antonio and Wooldridge, M. and Vasconcelos, W.},
+  year={2014},
+  booktitle={AAMAS}
+}
+
+@article{morales2015online,
+  title={Online automated synthesis of compact normative systems},
+  author={Morales, Javier and Lopez-Sanchez, Maite and Rodriguez-Aguilar, Juan A and Vasconcelos, Wamberto and Wooldridge, Michael},
+  journal={ACM Transactions on Autonomous and Adaptive Systems (TAAS)},
+  volume={10},
+  number={1},
+  pages={1--33},
+  year={2015},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{morales2018off,
+  title={Off-line synthesis of evolutionarily stable normative systems},
+  author={Morales, Javier and Wooldridge, Michael and Rodr{\'\i}guez-Aguilar, Juan A and L{\'o}pez-S{\'a}nchez, Maite},
+  journal={AAMAS},
+  volume={32},
+  pages={635--671},
+  year={2018},
+  publisher={Springer}
+}
+
+@inproceedings{castelfranchi2000deliberative,
+  title={Deliberative normative agents: Principles and architecture},
+  author={Castelfranchi, Cristiano and Dignum, Frank and Jonker, Catholijn M and Treur, Jan},
+  booktitle={Intelligent Agents VI. Agent Theories, Architectures, and Languages: 6th International Workshop, ATAL’99, Orlando, Florida, USA, July 15-17, 1999. Proceedings 6},
+  pages={364--378},
+  year={2000},
+  organization={Springer}
+}
+
+@inproceedings{de2017understanding,
+  title={Understanding norm change: An evolutionary game-theoretic approach},
+  author={De, Soham and Nau, Dana S and Gelfand, Michele J},
+  booktitle={Proceedings of the 16th conference on autonomous agents and multiagent systems},
+  pages={1433--1441},
+  year={2017}
+}
+
+@article{dignum1999autonomous,
+  title={Autonomous agents with norms},
+  author={Dignum, Frank},
+  journal={Artificial intelligence and law},
+  volume={7},
+  pages={69--79},
+  year={1999},
+  publisher={Springer}
+}
+
+
+
+@inproceedings{criado2010bdi,
+  title={A BDI architecture for normative decision making},
+  author={Criado, Natalia and Argente, Estefania and Botti, V},
+  booktitle={Proceedings of the 9th International Conference on Autonomous Agents and Multiagent Systems: volume 1-Volume 1},
+  pages={1383--1384},
+  year={2010}
+}
+
+@article{zhang2023building,
+  title={Building cooperative embodied agents modularly with large language models},
+  author={Zhang, Hongxin and Du, Weihua and Shan, Jiaming and Zhou, Qinhong and Du, Yilun and Tenenbaum, Joshua B and Shu, Tianmin and Gan, Chuang},
+  journal={arXiv preprint arXiv:2307.02485},
+  year={2023}
+}
+
+@inproceedings{shinn2023reflexion,
+  title={Reflexion: Language agents with verbal reinforcement learning},
+  author={Shinn, Noah and Cassano, Federico and Gopinath, Ashwin and Narasimhan, Karthik R and Yao, Shunyu},
+  booktitle={NeurIPS},
+  year={2023}
+}
+
+@inproceedings{wang2023describe,
+  title={Describe, explain, plan and select: interactive planning with LLMs enables open-world multi-task agents},
+  author={Wang, Z. and Cai, S. and Chen, G. and Liu, A. and Ma, X. and Liang, Y.},
+  booktitle={NeurIPS},
+  year={2023}
+}
+
+
+@inproceedings{Lin2023SwiftSageAG,
+  title={SwiftSage: A Generative Agent with Fast and Slow Thinking for Complex Interactive Tasks},
+  author={B. Yuchen Lin and Y. Fu and K. Yang and Prithviraj A. and Faeze B. and S. Huang and Chandra B. and Y. Choi and X. Ren},
+  booktitle={NeurIPS},
+  year={2023}
+}
+
+
+@inproceedings{dastani2003role,
+  title={Role-assignment in open agent societies},
+  author={Dastani, Mehdi and Dignum, Virginia and Dignum, Frank},
+  booktitle={Proceedings of the second international joint conference on Autonomous agents and multiagent systems},
+  pages={489--496},
+  year={2003}
+}
+
+@inproceedings{alechina2012programming,
+  title={Programming norm-aware agents},
+  author={Alechina, Natasha and Dastani, Mehdi and Logan, Brian},
+  booktitle={Proceedings of the 11th International Conference on Autonomous Agents and Multiagent Systems-Volume 2},
+  pages={1057--1064},
+  year={2012}
+}
+
+@article{savarimuthu2013identifying,
+  title={Identifying prohibition norms in agent societies},
+  author={Savarimuthu, Bastin Tony Roy and Cranefield, Stephen and Purvis, Maryam A and Purvis, Martin K},
+  journal={Artificial intelligence and law},
+  volume={21},
+  pages={1--46},
+  year={2013},
+  publisher={Springer}
+}
+
+@article{aagotnes2010robust,
+  title={Robust normative systems and a logic of norm compliance},
+  author={{\AA}gotnes, Thomas and Van der Hoek, Wiebe and Wooldridge, Michael},
+  journal={Logic Journal of IGPL},
+  volume={18},
+  number={1},
+  pages={4--30},
+  year={2010},
+  publisher={Oxford University Press}
+}
+
+@article{lin2023agentsims,
+  title={Agentsims: An open-source sandbox for large language model evaluation},
+  author={Lin, Jiaju and Zhao, Haoran and Zhang, Aochi and Wu, Yiting and Ping, Huqiuyue and Chen, Qin},
+  journal={arXiv preprint arXiv:2308.04026},
+  year={2023}
+}
+
+@article{wang2023recagent,
+  title={RecAgent: A Novel Simulation Paradigm for Recommender Systems},
+  author={Wang, Lei and Zhang, Jingsen and Chen, Xu and Lin, Yankai and Song, Ruihua and Zhao, Wayne Xin and Wen, Ji-Rong},
+  journal={arXiv preprint arXiv:2306.02552},
+  year={2023}
+}
+
+@inproceedings{boella2006architecture,
+  title={An architecture of a normative system: counts-as conditionals, obligations and permissions},
+  author={Boella, Guido and van der Torre, Leendert},
+  booktitle={Proceedings of the fifth international joint conference on Autonomous agents and multiagent systems},
+  pages={229--231},
+  year={2006}
+}
+
+@inproceedings{lopez2004architecture,
+  title={An architecture for autonomous normative agents},
+  author={Lopez, FLY and M{\'a}rquez, Amauri Arenas},
+  booktitle={Proceedings of the Fifth Mexican International Conference in Computer Science, 2004. ENC 2004.},
+  pages={96--103},
+  year={2004},
+  organization={IEEE}
+}
+
+@article{criado2010towards,
+  title={Towards a normative BDI architecture for norm compliance},
+  author={Criado, Natalia and Argente, Estefania and Noriega, Pablo and Botti, V},
+  journal={COIN@ MALLOW2010},
+  pages={65--81},
+  year={2010}
+}
+
+
+
+@inproceedings{garcia2006norm,
+  title={Norm-oriented programming of electronic institutions},
+  author={Garc{\'\i}a-Camino, Andr{\'e}s and Rodr{\'\i}guez-Aguilar, J-A and Sierra, Carles and Vasconcelos, Wamberto},
+  booktitle={Proceedings of the fifth international joint conference on Autonomous agents and multiagent systems},
+  pages={670--672},
+  year={2006}
+}
+
+@article{jones1993characterisation,
+  title={On the characterisation of law and computer systems: The normative systems perspective},
+  author={Jones, Andrew JI and Sergot, Marek and others},
+  journal={Deontic logic in computer science: normative system specification},
+  pages={275--307},
+  year={1993},
+  publisher={Citeseer}
+}
+
+
+
+@inproceedings{aldewereld2006operationalisation,
+  title={Operationalisation of norms for usage in electronic institutions},
+  author={Aldewereld, Huib and Dignum, Frank and Garc{\'\i}a-Camino, Andr{\'e}s and Noriega, Pablo and Rodr{\'\i}guez-Aguilar, Juan Antonio and Sierra, Carles},
+  booktitle={AAMAS},
+  pages={223--225},
+  year={2006}
+}
+
+@inproceedings{y2002constraining,
+  title={Constraining autonomy through norms},
+  author={y L{\'o}pez, Fabiola L{\'o}pez and Luck, Michael and d'Inverno, Mark},
+  booktitle={AAMAS},
+  pages={674--681},
+  year={2002}
+}
+
+@article{staller2001introducing,
+  title={Introducing emotions into the computational study of social norms: A first evaluation},
+  author={Staller, Alexander and Petta, Paolo and others},
+  journal={Journal of artificial societies and social simulation},
+  volume={4},
+  number={1},
+  pages={U27--U60},
+  year={2001}
+}
+
+@article{chen2023autoagents,
+  title={Autoagents: A framework for automatic agent generation},
+  author={Chen, Guangyao and Dong, Siwei and Shu, Yu and Zhang, Ge and Sesay, Jaward and Karlsson, B{\"o}rje F and Fu, Jie and Shi, Yemin},
+  journal={arXiv preprint arXiv:2309.17288},
+  year={2023}
+}
+
+@article{zhou2023agents,
+  title={Agents: An open-source framework for autonomous language agents},
+  author={Zhou, Wangchunshu and Jiang, Yuchen Eleanor and Li, Long and Wu, Jialong and Wang, Tiannan and Qiu, Shi and Zhang, Jintian and Chen, Jing and Wu, Ruipu and Wang, Shuai and others},
+  journal={arXiv preprint arXiv:2309.07870},
+  year={2023}
+}
+
+@inproceedings{li2023camel,
+  title={Camel: Communicative agents for" mind" exploration of large language model society},
+  author={Li, Guohao and Hammoud, Hasan Abed Al Kader and Itani, Hani and Khizbullin, Dmitrii and Ghanem B},
+  booktitle={NeurIPS},
+  year={2023}
+}
+
+@article{hong2023metagpt,
+  title={Metagpt: Meta programming for multi-agent collaborative framework},
+  author={Hong, Sirui and Zheng, Xiawu and Chen, Jonathan and Cheng, Yuheng and Wang, Jinlin and Zhang, Ceyao and Wang, Zili and Yau, Steven Ka Shing and Lin, Zijuan and Zhou, Liyang and others},
+  journal={arXiv:2308.00352},
+  year={2023}
+}
+
+@inproceedings{
+chen2024agentverse,
+title={AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors},
+author={Weize Chen and Yusheng Su and Jingwei Zuo and Cheng Yang and Chenfei Yuan and Chi-Min Chan and Heyang Yu and Yaxi Lu and Yi-Hsin Hung and Chen Qian and Yujia Qin and Xin Cong and Ruobing Xie and Zhiyuan Liu and Maosong Sun and Jie Zhou},
+booktitle={ICLR},
+year={2024},
+url={https://openreview.net/forum?id=EHg5GDnyq1}
+}
+
+@article{shoham1995social,
+  title={On social laws for artificial agent societies: off-line design},
+  author={Shoham, Yoav and Tennenholtz, Moshe},
+  journal={Artificial intelligence},
+  volume={73},
+  number={1-2},
+  pages={231--252},
+  year={1995},
+  publisher={Elsevier}
+}
+
+@article{wu2023autogen,
+  title={Autogen: Enabling next-gen llm applications via multi-agent conversation framework},
+  author={Wu, Qingyun and Bansal, Gagan and Zhang, Jieyu and Wu, Yiran and Zhang, Shaokun and Zhu, Erkang and Li, Beibin and Jiang, Li and Zhang, Xiaoyun and Wang, Chi},
+  journal={arXiv preprint arXiv:2308.08155},
+  year={2023}
+}
+
+@article{hales2002group,
+  title={Group reputation supports beneficent norms},
+  author={Hales, David},
+  journal={Journal of Artificial Societies and Social Simulation},
+  volume={5},
+  number={4},
+  year={2002}
+}
+
+@article{flentge2001modelling,
+  title={Modelling the emergence of possession norms using memes},
+  author={Flentge, Felix and Polani, Daniel and Uthmann, Thomas},
+  journal={Journal of Artificial Societies and Social Simulation},
+  year={2001}
+}
+
+@article{ramezani2023knowledge,
+  title={Knowledge of cultural moral norms in large language models},
+  author={Ramezani, A. and Xu, Y.},
+  journal={ACL},
+  year={2023},
+  publisher={Association for Computational Linguistics}
+}
+
+@article{awad2018moral,
+  title={The moral machine experiment},
+  author={Awad, Edmond and D., Sohan and Kim, Richard and S., Jonathan and H., Joseph and S., Azim and B., Jean-Fran{\c{c}}ois and R., Iyad},
+  journal={Nature},
+  year={2018},
+  publisher={Nature Publishing Group}
+}
+
+@article{awad2020universals,
+  title={Universals and variations in moral decisions made in 42 countries by 70,000 participants},
+  author={Awad, Edmond and Dsouza, Sohan and Shariff, Azim and Rahwan, Iyad and Bonnefon, Jean-Fran{\c{c}}ois},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={117},
+  number={5},
+  pages={2332--2337},
+  year={2020},
+  publisher={National Acad Sciences}
+}
+
+@inproceedings{ousidhoum2021probing,
+  title={Probing toxic content in large pre-trained language models},
+  author={Ousidhoum, Nedjma and Zhao, Xinran and Fang, Tianqing and Song, Yangqiu and Yeung, Dit-Yan},
+  booktitle={ACL-IJCNLP 2021 Volume 1: Long Papers},
+  pages={4262--4274},
+  year={2021}
+}
+
+@inproceedings{abid2021persistent,
+  title={Persistent anti-muslim bias in large language models},
+  author={Abid, A. and Farooqi, M. and Zou, J.},
+  booktitle={AIES},
+  year={2021}
+}
+
+@article{sap2019social,
+  title={Social bias frames: Reasoning about social and power implications of language},
+  author={Sap, Maarten and Gabriel, Saadia and Qin, Lianhui and Jurafsky, Dan and Smith, Noah A and Choi, Yejin},
+  journal={arXiv preprint arXiv:1911.03891},
+  year={2019}
+}
+
+@inproceedings{nozza2021honest,
+  title={HONEST: Measuring hurtful sentence completion in language models},
+  author={Nozza, Debora and Bianchi, Federico and Hovy, Dirk and others},
+  booktitle={Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies},
+  year={2021},
+  organization={Association for Computational Linguistics}
+}
+
+@inproceedings{nozza2022measuring,
+  title={Measuring harmful sentence completion in language models for LGBTQIA+ individuals},
+  author={Nozza, Debora and Bianchi, Federico and Lauscher, Anne and Hovy, Dirk and others},
+  booktitle={Proceedings of the Second Workshop on Language Technology for Equality, Diversity and Inclusion},
+  year={2022},
+  organization={Association for Computational Linguistics}
+}
+
+@inproceedings{kenton2019bert,
+  title={Bert: Pre-training of deep bidirectional transformers for language understanding},
+  author={Kenton, Jacob Devlin Ming-Wei Chang and Toutanova, Lee Kristina},
+  booktitle={Proceedings of naacL-HLT},
+  volume={1},
+  pages={2},
+  year={2019}
+}
+
+@article{hammerl2022multilingual,
+  title={Do Multilingual Language Models Capture Differing Moral Norms?},
+  author={H{\"a}mmerl, Katharina and Deiseroth, Bj{\"o}rn and Schramowski, Patrick and Libovick{\`y}, Jind{\v{r}}ich and Fraser, Alexander and Kersting, Kristian},
+  journal={arXiv preprint arXiv:2203.09904},
+  year={2022}
+}
+
+@inproceedings{guo2023data,
+  title={A Data Fusion Framework for Multi-Domain Morality Learning},
+  author={Guo, Siyi and Mokhberian, Negar and Lerman, Kristina},
+  booktitle={AAAI},
+  year={2023}
+}
+
+@inproceedings{uchendu2023does,
+  title={Does human collaboration enhance the accuracy of identifying llm-generated deepfake texts?},
+  author={Uchendu, Adaku and Lee, Jooyoung and Shen, Hua and Le, Thai and Lee, Dongwon and others},
+  booktitle={Proceedings of the AAAI Conference on Human Computation and Crowdsourcing},
+  volume={11},
+  number={1},
+  pages={163--174},
+  year={2023}
+}
+
+@inproceedings{zhao2023more,
+  title={More human than human: LLM-generated narratives outperform human-LLM interleaved narratives},
+  author={Zhao, Zoie and Song, Sophie and Duah, Bridget and Macbeth, Jamie and Carter, Scott and Van, Monica P and Bravo, Nayeli Suseth and Klenk, Matthew and Sick, Kate and Filipowicz, Alexandre LS},
+  booktitle={Proceedings of the 15th Conference on Creativity and Cognition},
+  pages={368--370},
+  year={2023}
+}
+
+@inproceedings{gehrmann2019gltr,
+  title={GLTR: Statistical Detection and Visualization of Generated Text},
+  author={Gehrmann, Sebastian and Strobelt, Hendrik and Rush, Alexander},
+  booktitle={Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics: System Demonstrations},
+  year={2019},
+  organization={Association for Computational Linguistics}
+}
+
+@article{radford2019language,
+  title={Language models are unsupervised multitask learners},
+  author={Radford, Alec and Wu, Jeffrey and Child, Rewon and Luan, David and Amodei, Dario and Sutskever, Ilya and others},
+  journal={OpenAI blog},
+  volume={1},
+  number={8},
+  pages={9},
+  year={2019}
+}
+
+@book{branscombe2022social,
+    author = {Nyla R. Branscombe,Robert A. Baron},
+    title = {Social Psychology 15th ed.},
+    year = {2022},
+    publisher = {Person}
+}
+
+@article{nakamaru2004spread,
+  title={Spread of two linked social norms on complex interaction networks},
+  author={Nakamaru, Mayuko and Levin, S. A},
+  journal={Journal of theoretical biology},
+  year={2004}
+}
+
+@inproceedings{paiva2018engineering,
+title={Engineering pro-sociality with autonomous agents},
+author={Paiva, A. and Santos, F. and Santos, F.},
+booktitle={AAAI},
+year={2018}
+}
+
+@inproceedings{liu2024training,
+title={Training Socially Aligned Language Models on Simulated Social Interactions},
+author={Liu, R. and Yang, R. and Jia, C. and Zhang, G. and Yang, D. and Vosoughi, S.},
+booktitle={ICLR},
+year={2024},
+url={https://openreview.net/forum?id=NddKiWtdUm}
+}
+
+
+
+@inproceedings{franks2013learning,
+  title={Learning influence in complex social networks},
+  author={Franks, Henry and Griffiths, Nathan and Anand, Sarabjot Singh},
+  booktitle={AAMAS},
+  year={2013}
+}
+
+@inproceedings{santos2018social,
+  title={Social norms of cooperation with costly reputation building},
+  author={Santos, Fernando and Pacheco, Jorge and Santos, Francisco},
+  booktitle={AAAI},
+  year={2018}
+}
+
+@article{argente2020normative,
+  title={Normative emotional agents: a viewpoint paper},
+  author={Argente, Estefania and Del Val, Elena and P., Daniel and B., Vicente},
+  journal={IEEE Trans. Affective Comput.},
+  year={2020}
+}
+
+@article{bratman1987intention,
+  title={Intention, plans, and practical reason},
+  author={Bratman, Michael},
+  year={1987}
+}
+
+@inproceedings{yao2016action,
+  title={Action-level intention selection for BDI agents},
+  author={Yao, Yuan and Logan, Brian},
+  booktitle={AAMAS},
+  year={2016}
+}
+
+@inproceedings{winikoff2023evaluating,
+  title={Evaluating a mechanism for explaining BDI agent behaviour},
+  author={Winikoff, Michael and Sidorenko, Galina},
+  booktitle={AAMAS},
+  year={2023}
+}
+
+@misc{baronchelli2023shaping,
+      title={Shaping New Norms for Artificial Intelligence: A Complex Systems Perspective}, 
+      author={Andrea Baronchelli},
+      year={2023},
+      eprint={2307.08564},
+      archivePrefix={arXiv},
+      primaryClass={physics.soc-ph}
+}
+
+@inproceedings{morris2023agent,
+  title={Agent-directed Runtime Norm Synthesis},
+  author={Morris-Martin, Andreasa and De Vos, Marina and Padget, Julian and Ray, Oliver},
+  booktitle={AAMAS},
+  year={2023}
+}
+
+@inproceedings{tzeng2022engineering,
+  title={Engineering Normative and Cognitive Agents with Emotions and Values},
+  author={Tzeng, Sz-Ting},
+  booktitle={AAMAS},
+  year={2022}
+}
+
+@article{baronchelli2024shaping,
+  title={Shaping new norms for AI},
+  author={Baronchelli, Andrea},
+  journal={Philosophical Transactions of the Royal Society B},
+  volume={379},
+  number={1897},
+  pages={20230028},
+  year={2024},
+  publisher={The Royal Society}
+}
+
+@inproceedings{hu2019big,
+  title={To be big picture thinker or detail-oriented? utilizing perceived gist information to achieve efficient convention emergence with bilateralism and multilateralism},
+  author={Hu, Shuyue and Leung, Chin-wing and Leung, Ho-fung and Liu, Jiamou},
+  booktitle={AAMAS},
+  year={2019}
+}
+
+@inproceedings{savarimuthu2024harnessing,
+  title={Harnessing the power of LLMs for normative reasoning in MASs},
+  author={Savarimuthu, Bastin Tony Roy and Ranathunga, Surangika and Cranefield, Stephen},
+  booktitle={COINE workshop, AAMAS},
+  year={2024}
+}
+
+@inproceedings{he2024norm,
+  title={Norm Violation Detection in Multi-Agent Systems using Large Language Models: A Pilot Study},
+  author={He, Shawn and Ranathunga, Surangika and Cranefield, Stephen and Savarimuthu, Bastin Tony Roy},
+  booktitle={COINE workshop, AAMAS},
+  year={2024}
+}
+
+@inproceedings{liullm,
+  title={LLM-Powered Hierarchical Language Agent for Real-time Human-AI Coordination},
+  author={Liu, Jijia and Yu, Chao and Gao, Jiaxuan and Xie, Yuqing and Liao, Qingmin and Wu, Yi and Wang, Yu},
+  booktitle={Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems},
+  year={2024}
+}
+
+@inproceedings{oldenburg2024learning,
+  title={Learning and Sustaining Shared Normative Systems via Bayesian Rule Induction in Markov Games},
+  author={Oldenburg, Ninell and Zhi-Xuan, Tan},
+  booktitle={Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems},
+  pages={1510--1520},
+  year={2024}
+}
+
+@inproceedings{tzeng2024norm,
+  title={Norm Enforcement with a Soft Touch: Faster Emergence, Happier Agents},
+  author={Tzeng, Sz-Ting and Ajmeri, Nirav and Singh, Munindar P},
+  booktitle={Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems},
+  pages={1837--1846},
+  year={2024}
+}
+
+@inproceedings{ichida2024bdi,
+  title={BDI Agents in Natural Language Environments},
+  author={Ichida, Alexandre Yukio and Meneguzzi, Felipe and Cardoso, Rafael C},
+  booktitle={Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems},
+  year={2024},
+  organization={International Foundation for Autonomous Agents and Multiagent Systems}
+}
+\end{filecontents}
+
+\title{TITLE HERE}
+
+\author{GPT-4o \& Claude\\
+Department of Computer Science\\
+University of LLMs\\
+}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+ABSTRACT HERE
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+INTRO HERE
+
+\section{Related Work}
+\label{sec:related}
+RELATED WORK HERE
+
+\section{Background}
+\label{sec:background}
+BACKGROUND HERE
+
+\section{Conclusions and Future Work}
+\label{sec:conclusion}
+CONCLUSIONS HERE
+
+This work was generated by \textsc{The AI Scientist} \citep{lu2024aiscientist}.
+
+\bibliographystyle{iclr2024_conference}
+\bibliography{references}
+
+\end{document}
