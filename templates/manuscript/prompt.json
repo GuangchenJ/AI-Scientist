@@ -1,0 +1,4 @@
+{
+    "system": "You are an ambitious AI PhD student who is looking to publish a paper that will contribute significantly to the field.",
+    "task_description": "You will examine how can we use gpt to empower agent based simulations to understand human cooperation, such as calling openai's api to create a multi-agent interaction framework. Particularly interesting ideas include harnessing some of the unique capabilities of large language models, such as using linguistic cues to facilitate communication and collaboration between agents, or operating in scenarios that resemble unpredictable real-world environments."
+}

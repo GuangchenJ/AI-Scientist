@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "gpt-driven_cooperation_in_agent-based_simulations",
+        "Title": "How can we use gpt to empower agent based simulations to understand human cooperation",
+        "Experiment": "Equip agents in the simulation with GPT modules to enable complex decision-making based on learned human cooperation data. Continuously adjust the complexity and constraints of the simulation environment (e.g., resource availability, social norms) to test the adaptability and effectiveness of GPT-driven strategies in real-time. Measure the success of cooperation strategies through outcomes like resource distribution efficiency and conflict resolution rates.",
+        "Results": "Agents powered by GPT exhibit more nuanced and effective cooperative strategies under dynamically changing conditions, providing deeper insights into the mechanisms of human cooperation.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 6
+    },
+    {
+        "Name": "adaptive_empathy_in_agent_simulations",
+        "Title": "Leveraging Adaptive Empathy to Enhance Cooperation in Agent-Based Simulations",
+        "Experiment": "Modify the agent communication functions to incorporate a dialogue generation module powered by GPT, allowing agents to express intentions and emotions through short statements. Implement a learning mechanism where agents adapt their empathetic expressions based on previous interactions. Design scenarios where agents must negotiate resource sharing or conflict resolution using these expressions. Measure cooperation effectiveness by evaluating resource sharing efficiency and conflict resolution success rates, comparing adaptive empathy-driven agents to traditional utility-maximizing agents.",
+        "Results": "Agents employing adaptive GPT-generated empathetic expressions show improved cooperation, leading to higher efficiency in resource distribution and faster conflict resolution than purely utility-maximizing agents. The evolution of empathetic expressions over time indicates the significant role of adaptive empathy in facilitating cooperative behavior.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 9
+    },
+    {
+        "Name": "cultural_narratives_in_agent_simulations",
+        "Title": "Exploring the Impact of Cultural Narratives on Cooperation in Agent-Based Simulations",
+        "Experiment": "Develop a cultural narrative module that assigns each agent a simplified narrative archetype (e.g., collectivist, individualist, egalitarian) with defined communication styles and behavioral traits. Introduce feedback mechanisms allowing agents to adapt their narratives based on the outcomes of interactions. Design negotiation and collaboration scenarios, measuring cooperation through trust levels, resource sharing, and negotiation outcomes. Analyze the effects of narrative archetypes on cooperative behavior and the evolution of these narratives over time.",
+        "Results": "Agents assigned different cultural narrative archetypes demonstrate varied cooperation strategies, with certain archetypes fostering higher trust and resource sharing efficiency. The adaptive nature of narratives will reveal how cultural context evolves through interaction, providing valuable insights into cooperative behavior across diverse environments.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 9
+    }
+]

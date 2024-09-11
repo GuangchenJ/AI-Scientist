@@ -1,0 +1,38 @@
+[project]
+name = "ai-scientist"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "GuangchenJ", email = "guangchen98.jiang@gmail.com" }
+]
+dependencies = [
+    "anthropic>=0.34.2",
+    "aider-chat>=0.55.0",
+    "backoff>=2.2.1",
+    "matplotlib>=3.9.2",
+    "pypdf>=4.3.1",
+    "pymupdf4llm>=0.0.14",
+    "tqdm>=4.66.5",
+    "jupyter>=1.1.1",
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_scientist"]
+
+[[tool.rye.sources]]
+name = "mirrors.tuna"
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
