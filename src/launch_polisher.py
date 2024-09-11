@@ -12,6 +12,7 @@ from aider.io import InputOutput
 from datetime import datetime
 from ai_scientist.perform_writeup import perform_writeup, generate_latex
 from ai_scientist.perform_review import perform_review, load_paper, perform_improvement
+from utils import insert_references
 
 def print_time():
     print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -169,6 +170,8 @@ def do_refine(
                     "openrouter/meta-llama/llama-3.1-405b-instruct")
             else:
                 main_model = Model(model)
+
+            insert_references(writeup_file, source_reference, writeup_file)
             coder = Coder.create(
                 main_model=main_model,
                 fnames=fnames,
