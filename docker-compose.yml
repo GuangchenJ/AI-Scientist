@@ -1,16 +1,16 @@
 services:
-  ai_scientist:
+  paper_smith:
     build:
-      context: .  # Dockerfile 所在的路径
-      dockerfile: Dockerfile  # Dockerfile 的文件名
+      context: .  # the path of Dockerfile
+      dockerfile: Dockerfile  # the name of Dockerfile
     volumes:
-      - ./templates:/app/templates  # 映射本地的 templates 目录到容器中
-      - ./results:/app/results  # 映射本地的 results 目录到容器中
+      - ./templates:/app/templates  # Map the local `templates` directory to the container
+      - ./results:/app/results  # Map the local `results` directory to the container
     environment:
       - TZ=Asia/Shanghai
-      - OPENAI_API_KEY=${OPENAI_API_KEY}  # 使用环境变量 OPENAI_API_KEY
-      - OPENAI_BASE_URL=${OPENAI_BASE_URL}  # 使用环境变量 OPENAI_BASE_URL
-      - OPENAI_API_BASE=${OPENAI_API_BASE}  # 使用环境变量 OPENAI_API_BASE
+      - OPENAI_API_KEY=${OPENAI_API_KEY}  # for the environment variable OPENAI_API_KEY
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL}  # for the environment variable OPENAI_BASE_URL
+      - OPENAI_API_BASE=${OPENAI_API_BASE}  # for the environment variable OPENAI_API_BASE
       - CLOUD_ML_REGION=${CLOUD_ML_REGION} # for Model Garden call
       - ANTHROPIC_VERTEX_PROJECT_ID=${ANTHROPIC_VERTEX_PROJECT_ID} # for Model Garden call
       - VERTEXAI_LOCATION=${VERTEXAI_LOCATION} # for Aider/LiteLLM call, as per https://docs.litellm.ai/docs/providers/vertex#set-vertex-project--vertex-location

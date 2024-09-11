@@ -1,5 +1,5 @@
 [project]
-name = "ai-scientist"
+name = "paper-smith"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
@@ -32,7 +32,3 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ai_scientist"]
-
-[[tool.rye.sources]]
-name = "mirrors.tuna"
-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"

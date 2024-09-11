@@ -13,5 +13,5 @@ COPY requirements.lock ./
 RUN uv pip install --no-cache --system -r requirements.lock
 
 COPY src .
-ENTRYPOINT ["python", "launch_polisher.py"]
+ENTRYPOINT ["python", "main.py"]
 CMD []

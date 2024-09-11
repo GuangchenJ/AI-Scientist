@@ -4,8 +4,7 @@ import os.path as osp
 import shutil
 import subprocess
 from typing import Optional, Tuple
-# from ai_scientist.generate_ideas import search_for_papers
-from ai_scientist.llm import get_response_from_llm, extract_json_between_markers
+from paper_smith.llm import get_response_from_llm, extract_json_between_markers
 import re
 import json
 

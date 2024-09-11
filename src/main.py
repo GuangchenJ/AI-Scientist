@@ -10,8 +10,8 @@ from aider.coders import Coder
 from aider.models import Model
 from aider.io import InputOutput
 from datetime import datetime
-from ai_scientist.perform_writeup import perform_writeup, generate_latex
-from ai_scientist.perform_review import perform_review, load_paper, perform_improvement
+from paper_smith.perform_writeup import perform_writeup, generate_latex
+from paper_smith.perform_review import perform_review, load_paper, perform_improvement
 from utils import insert_references
 
 def print_time():
@@ -147,8 +147,8 @@ def do_refine(
     source_reference = osp.join(
         folder_name, "sources", "source_reference.bib")
 
-    print(f"source_latex: {source_latex}")
-    print(f"source_reference: {source_reference}")
+    # print(f"source_latex: {source_latex}")
+    # print(f"source_reference: {source_reference}")
 
     try:
         print_time()
@@ -256,8 +256,8 @@ if __name__ == "__main__":
     base_dir = osp.join("templates", args.project_name)
     results_dir = osp.join("results", args.project_name)
 
-    print(f"base_dir: {base_dir}")
-    print(f"results_dir: {results_dir}")
+    # print(f"base_dir: {base_dir}")
+    # print(f"results_dir: {results_dir}")
 
     print(f"Processing project: {args.project_name}")
     try:
