@@ -3,7 +3,8 @@ name = "paper-smith"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
-    { name = "GuangchenJ", email = "guangchen98.jiang@gmail.com" }
+    { name = "GuangchenJ", email = "guangchen98.jiang@gmail.com" },
+    { name = "ShiWenber", email = "1210169842@qq.com" }
 ]
 dependencies = [
     "anthropic>=0.34.2",
@@ -31,4 +32,4 @@ dev-dependencies = []
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/ai_scientist"]
+packages = ["src/paper_smith"]
