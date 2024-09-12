@@ -146,16 +146,6 @@ command: ["--model", "openai/gpt-4o-mini-2024-07-18", "--project-name", "manuscr
 
 > **注意**: 使用除 OpenAI 之外的其他模型时，需要确保相应的 API 和 URL 配置正确，部分模型可能无法保证兼容性。
 
-如果在中国大陆境内，可以考虑向 [`pyproject.toml`](./pyproject.toml) 文件中添加
-
-```toml
-[[tool.rye.sources]]
-name = "mirrors.tuna"
-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
-```
-
-来加快 docker 镜像的构建速度。
-
 #### 通过 Docker 运行程序
 
 然后通过 `docker compose` 来运行该项目： 
